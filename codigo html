@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Ultrasónico</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .card{
+            background: rgba(255,255,255,0.1);
+            width: 300px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+        }
+
+        h1{
+            margin-bottom: 20px;
+        }
+
+        .distancia{
+            font-size: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .estado{
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .seguro{
+            background-color: #2ecc71;
+        }
+
+        .alerta{
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>📡 Sensor Ultrasónico</h1>
+    <div class="distancia" id="valor">0 cm</div>
+    <div class="estado" id="estado">Esperando datos...</div>
+</div>
+
+<script>
+    // Simulación de dato recibido (cambiar por dato real desde Thinger.io)
+    let distancia = 25; // Aquí se conecta la variable real
+
+    document.getElementById("valor").innerHTML = distancia + " cm";
+
+    if(distancia > 20){
+        document.getElementById("estado").innerHTML = "Espacio Libre";
+        document.getElementById("estado").classList.add("seguro");
+    } else {
+        document.getElementById("estado").innerHTML = "⚠ Objeto Cercano";
+        document.getElementById("estado").classList.add("alerta");
+    }
+</script>
+
+</body>
+</html>
